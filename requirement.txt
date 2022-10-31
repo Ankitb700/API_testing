@@ -1,0 +1,6 @@
+
+requirement.txt
+fastapi==0.78.0
+pydantic==1.9.0
+SQLAlchemy==1.4.32
+uvicorn==0.17.6
