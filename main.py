@@ -36,7 +36,7 @@ async def create_user(user: schemas.Users, db: Session = Depends(get_db)):
 
 
 @app.get('/users/{id}')
-async def get_user( db: Session = Depends(get_db)):
+async def get_user(id:int, db: Session = Depends(get_db)):
     user = db.query(model.User).all()    #filter(model.User.id== id)
     return user
 
@@ -71,7 +71,7 @@ async def get_all_book(db:Session=Depends(get_db)):
     return db.query(model.bookstore).all()
 
 @app.get("/book/{id}")
-async def get_book( db: Session = Depends(get_db)):
+async def get_book(id:int, db: Session = Depends(get_db)):
     book = db.query(model.bookstore).filter(model.bookstore.id == id).first()
     return book
 
@@ -90,6 +90,6 @@ async def get_all_location(db:Session=Depends(get_db)):
     return db.query(model.location).all()
 
 @app.get("/location/{id}")
-async def get_location( db: Session = Depends(get_db)):
+async def get_location(id:int, db: Session = Depends(get_db)):
     loca = db.query(model.location).filter(model.location.id == id).first()
     return loca
